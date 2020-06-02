@@ -40,7 +40,7 @@ const {
 } = Service;
 
 export default lockContextContainer(withModalMounter(withTracker(({ mountModal, userLocks }) => ({
-  isRaised: currentUserEmoji.status() !=== 'none',
+  isRaised: currentUserEmoji.status() !== 'none',
   disable: isConnecting() || isHangingUp() || !Meteor.status().connected,
   handleJoinAudio,
   handleLeaveAudio,
