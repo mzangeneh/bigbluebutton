@@ -338,7 +338,7 @@ class PresentationUploader extends Component {
     logger.info({
       logCode: 'drop fileeeeeeeeeeeeee',
       extraInfo: { logType: 'show' },
-    }, 'a file dropppppped');
+    }, 'a file dropppppp');
     const { fileValidMimeTypes, intl } = this.props;
     const validMimes = fileValidMimeTypes.map(fileValid => fileValid.mime);
     const validExtentions = fileValidMimeTypes.map(fileValid => fileValid.extension);
