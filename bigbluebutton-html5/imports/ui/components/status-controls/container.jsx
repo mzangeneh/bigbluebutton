@@ -6,7 +6,6 @@ import UserListService from '/imports/ui/components/user-list/service';
 import { makeCall } from '/imports/ui/services/api';
 import lockContextContainer from '/imports/ui/components/lock-viewers/context/container';
 import logger from '/imports/startup/client/logger';
-import Service from '../service';
 
 const StatusShortcutContainer = props => <StatusShortcut {...props} />;
 
