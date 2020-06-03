@@ -231,6 +231,8 @@ public:
       mime: image/jpeg
     - extension: .png
       mime: image/png
+    - extension: .zip
+      mime: application/zip
   user:
     role_moderator: MODERATOR
     role_viewer: VIEWER
