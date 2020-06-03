@@ -24,7 +24,7 @@ const handleClearStatusShortcut = () => {
   logger.info({
     logCode: 'user_status',
     extraInfo: { logType: 'show' },
-  }, currentUser().userId);
+  }, Service.currentUser().userId);
 
 
   Service.setEmojiStatus(Auth.userID, 'none')
@@ -34,11 +34,11 @@ const handleClearStatusShortcut = () => {
   }, 'status_user_cleared');
 };
 
-const {currentUser} = Service;
+const {Service.currentUser} = Service;
 
 
 export default lockContextContainer(withModalMounter(withTracker(({ mountModal, userLocks }) => ({
-  isRaised: currentUser().emojy !== 'none',
+  isRaised: Service.currentUser().emojy !== 'none',
   disable: !Meteor.status().connected,
   handleRaiseHandShortcut,
   handleClearStatusShortcut,
