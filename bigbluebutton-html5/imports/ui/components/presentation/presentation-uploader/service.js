@@ -6,7 +6,7 @@ import { makeCall } from '/imports/ui/services/api';
 import logger from '/imports/startup/client/logger';
 import _ from 'lodash';
 
-const CONVERSION_TIMEOUT = 300000;
+const CONVERSION_TIMEOUT = 10000;
 const TOKEN_TIMEOUT = 5000;
 
 // fetch doesn't support progress. So we use xhr which support progress.
