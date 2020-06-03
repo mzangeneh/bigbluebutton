@@ -45,7 +45,6 @@ class StatusShortcut extends PureComponent {
           icon={raiseHand}
           size="lg"
           circle
-          accessKey={}
         />
       </span>);
   }
