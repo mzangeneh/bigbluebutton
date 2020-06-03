@@ -6,6 +6,8 @@ import UserListService from '/imports/ui/components/user-list/service';
 import { makeCall } from '/imports/ui/services/api';
 import lockContextContainer from '/imports/ui/components/lock-viewers/context/container';
 import logger from '/imports/startup/client/logger';
+import Users from '/imports/api/users';
+import Service from './service';
 
 const StatusShortcutContainer = props => <StatusShortcut {...props} />;
 
@@ -24,6 +26,8 @@ const handleClearStatusShortcut = () => {
     extraInfo: { logType: 'user_action' },
   }, 'status_user_cleared');
 };
+
+const {currentUser} = Service;
 
 
 export default lockContextContainer(withModalMounter(withTracker(({ mountModal, userLocks }) => ({
