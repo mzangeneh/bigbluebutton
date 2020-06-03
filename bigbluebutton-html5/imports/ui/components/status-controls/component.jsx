@@ -42,7 +42,7 @@ class StatusShortcut extends PureComponent {
             : 'not Raised'}
           color={isRaised ? 'primary' : 'default'}
           ghost={!isRaised}
-          icon={isRased ? 'undecided' : 'hand'}
+          icon={isRaised ? 'undecided' : 'hand'}
           size="lg"
           circle
         />
