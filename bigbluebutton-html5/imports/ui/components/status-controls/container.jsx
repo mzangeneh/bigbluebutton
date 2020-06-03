@@ -12,7 +12,7 @@ import Service from './service';
 const StatusShortcutContainer = props => <StatusShortcut {...props} />;
 
 const handleRaiseHandShortcut = () => {
-  setEmojiStatus(user.userId, 'raise')
+  setEmojiStatus(Auth.userID, 'raise')
   logger.info({
     logCode: 'status_user_hand_raised',
     extraInfo: { logType: 'user_action' },
@@ -20,7 +20,7 @@ const handleRaiseHandShortcut = () => {
 };
 
 const handleClearStatusShortcut = () => {
-  setEmojiStatus(user.userId, 'none')
+  setEmojiStatus(Auth.userID, 'none')
   logger.info({
     logCode: 'status_user_cleared',
     extraInfo: { logType: 'user_action' },
@@ -31,7 +31,7 @@ const {currentUser} = Service;
 
 
 export default lockContextContainer(withModalMounter(withTracker(({ mountModal, userLocks }) => ({
-  isRaised: currentUserEmoji.status() !== 'none',
+  isRaised: currentUser().emojy() !== 'none',
   disable: !Meteor.status().connected,
   handleJoinAudio,
   handleLeaveAudio,
