@@ -13,7 +13,7 @@ import StatusShortcut from './component';
 const StatusShortcutContainer = props => <StatusShortcut {...props} />;
 
 const handleRaiseHandShortcut = () => {
-  setEmojiStatus(Auth.userID, 'raise')
+  setEmojiStatus(Auth.userID, 'raiseHand')
   logger.info({
     logCode: 'status_user_hand_raised',
     extraInfo: { logType: 'user_action' },
@@ -24,7 +24,7 @@ const handleClearStatusShortcut = () => {
   logger.info({
     logCode: 'user_status',
     extraInfo: { logType: 'show' },
-  }, currentUser());
+  }, currentUser().emojy);
 
 
   setEmojiStatus(Auth.userID, 'none')
