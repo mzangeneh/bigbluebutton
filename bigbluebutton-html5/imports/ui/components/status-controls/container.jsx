@@ -13,7 +13,7 @@ import StatusShortcut from './component';
 const StatusShortcutContainer = props => <StatusShortcut {...props} />;
 
 const handleRaiseHandShortcut = () => {
-  Service.setEmojiStatus(Auth.userID, 'raise')
+  setEmojiStatus(Auth.userID, 'raise')
   logger.info({
     logCode: 'status_user_hand_raised',
     extraInfo: { logType: 'user_action' },
@@ -24,23 +24,23 @@ const handleClearStatusShortcut = () => {
   logger.info({
     logCode: 'user_status',
     extraInfo: { logType: 'show' },
-  }, Service.currentUser().userId);
+  }, currentUser().userId);
 
 
-  Service.setEmojiStatus(Auth.userID, 'none')
+  setEmojiStatus(Auth.userID, 'none')
   logger.info({
     logCode: 'status_user_cleared',
     extraInfo: { logType: 'user_action' },
   }, 'status_user_cleared');
 };
 
-const {Service.currentUser} = Service;
+const {currentUser,setEmojiStatus} = Service;
 
 
 export default lockContextContainer(withModalMounter(withTracker(({ mountModal, userLocks }) => ({
-  isRaised: Service.currentUser().emojy !== 'none',
+  isRaised: currentUser().emojy !== 'none',
   disable: !Meteor.status().connected,
   handleRaiseHandShortcut,
   handleClearStatusShortcut,
-  setEmojiStatus: Service.setEmojiStatus,
+  setEmojiStatus: setEmojiStatus,
 }))(StatusShortcutContainer)));
