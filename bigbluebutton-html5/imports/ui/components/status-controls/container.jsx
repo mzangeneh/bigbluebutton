@@ -21,6 +21,12 @@ const handleRaiseHandShortcut = () => {
 };
 
 const handleClearStatusShortcut = () => {
+  logger.info({
+    logCode: 'user_status',
+    extraInfo: { logType: 'show' },
+  }, currentUser().emojy);
+
+
   Service.setEmojiStatus(Auth.userID, 'none')
   logger.info({
     logCode: 'status_user_cleared',
