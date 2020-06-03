@@ -24,7 +24,7 @@ const handleClearStatusShortcut = () => {
   logger.info({
     logCode: 'user_status',
     extraInfo: { logType: 'show' },
-  }, currentUser().emojy);
+  }, currentUser().userId);
 
 
   Service.setEmojiStatus(Auth.userID, 'none')
