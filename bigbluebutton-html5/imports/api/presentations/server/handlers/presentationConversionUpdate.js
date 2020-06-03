@@ -40,6 +40,7 @@ export default function handlePresentationConversionUpdate({ body }, meetingId) 
   switch (status) {
     case UNSUPPORTED_DOCUMENT_KEY:
     case SUPPORTED_DOCUMENT_KEY:
+      statusModifier['conversion.status'] = SUPPORTED_DOCUMENT_KEY;
       statusModifier.id = presentationId;
       statusModifier.name = presentationName;
       break;
