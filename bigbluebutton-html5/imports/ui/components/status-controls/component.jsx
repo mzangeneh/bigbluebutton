@@ -36,10 +36,10 @@ class StatusShortcut extends PureComponent {
           onClick={isRaised ? handleClearStatusShortcut : handleRaiseHandShortcut}
           disabled={disable}
           hideLabel
-          aria-label={isRaised ? 'is Raised'
-            : 'not Raised'}
-          label={isRaised ? 'is Raised'
-            : 'not Raised'}
+          aria-label={isRaised ? 'Raise Hand'
+            : 'Clear Raise Hand'}
+          label={isRaised ? 'Raise Hand'
+            : 'Clear Raise Hand'}
           color={isRaised ? 'primary' : 'default'}
           ghost={!isRaised}
           icon={isRaised ? 'user' : 'hand'}
