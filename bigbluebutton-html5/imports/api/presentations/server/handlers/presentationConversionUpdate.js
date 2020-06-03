@@ -44,7 +44,6 @@ export default function handlePresentationConversionUpdate({ body }, meetingId) 
       statusModifier.name = presentationName;
       break;
 
-    case UNSUPPORTED_DOCUMENT_KEY:
     case OFFICE_DOC_CONVERSION_FAILED_KEY:
     case OFFICE_DOC_CONVERSION_INVALID_KEY:
     case PAGE_COUNT_FAILED_KEY:
