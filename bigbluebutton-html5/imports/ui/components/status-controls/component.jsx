@@ -22,6 +22,7 @@ const propTypes = {
   handleRaiseHandShortcut: PropTypes.func.isRequired,
   handleClearStatusShortcut: PropTypes.func.isRequired,
   disable: PropTypes.bool.isRequired,
+  isRaised: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
 };
 
@@ -35,6 +36,7 @@ class StatusShortcut extends PureComponent {
       handleRaiseHandShortcut,
       handleClearStatusShortcut,
       disable,
+      isRaised,
       intl,
     } = this.props;
 
