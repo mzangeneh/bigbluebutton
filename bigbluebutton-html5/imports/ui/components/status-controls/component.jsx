@@ -7,23 +7,13 @@ import getFromUserSettings from '/imports/ui/services/users-settings';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import { styles } from './styles';
 
-const intlMessages = defineMessages({
-  shortcutRaiseHand: {
-    id: 'app.shortcut.raiseHand',
-    description: 'Raise Hand Shortcut',
-  },
-  shortcutClearStatus: {
-    id: 'app.shortcut.clearStatus',
-    description: 'Clear User Status',
-  },
-});
+
 
 const propTypes = {
   handleRaiseHandShortcut: PropTypes.func.isRequired,
   handleClearStatusShortcut: PropTypes.func.isRequired,
   disable: PropTypes.bool.isRequired,
   isRaised: PropTypes.bool.isRequired,
-  intl: intlShape.isRequired,
 };
 
 class StatusShortcut extends PureComponent {
@@ -37,7 +27,6 @@ class StatusShortcut extends PureComponent {
       handleClearStatusShortcut,
       disable,
       isRaised,
-      intl,
     } = this.props;
 
     return (
@@ -47,16 +36,16 @@ class StatusShortcut extends PureComponent {
           onClick={isRaised ? handleClearStatusShortcut : handleRaiseHandShortcut}
           disabled={disable}
           hideLabel
-          aria-label={isRaised ? intl.formatMessage(intlMessages.clearStatus)
-            : intl.formatMessage(intlMessages.raiseHand)}
-          label={isRaised ? intl.formatMessage(intlMessages.clearStatus)
-            : intl.formatMessage(intlMessages.raiseHand)}
+          aria-label={isRaised ? 'is Raised'
+            : 'not Raised'}
+          label={isRaised ? 'is Raised'
+            : 'not Raised'}
           color={isRaised ? 'primary' : 'default'}
           ghost={!isRaised}
           icon={raiseHand}
           size="lg"
           circle
-          accessKey={isRaised ? shortcuts.raisehandshortcut : shortcuts.clearstatusshortcut}
+          accessKey={}
         />
       </span>);
   }
