@@ -36,4 +36,5 @@ export default lockContextContainer(withModalMounter(withTracker(({ mountModal, 
   disable: !Meteor.status().connected,
   handleRaiseHandShortcut,
   handleClearStatusShortcut,
+  setEmojiStatus: Service.setEmojiStatus,
 }))(StatusShortcutContainer)));
