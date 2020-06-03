@@ -19,10 +19,10 @@ const intlMessages = defineMessages({
 });
 
 const propTypes = {
-  handleToggleStatus: PropTypes.func.isRequired,
+  handleRaiseHandShortcut: PropTypes.func.isRequired,
+  handleClearStatusShortcut: PropTypes.func.isRequired,
   disable: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
-  talking: PropTypes.bool.isRequired,
 };
 
 class StatusShortcut extends PureComponent {
@@ -36,7 +36,6 @@ class StatusShortcut extends PureComponent {
       handleClearStatusShortcut,
       disable,
       intl,
-      shortcuts,
     } = this.props;
 
     return (
