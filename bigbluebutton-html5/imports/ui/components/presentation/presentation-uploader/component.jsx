@@ -356,7 +356,7 @@ class PresentationUploader extends Component {
         id,
         filename: file.name,
         isCurrent: false,
-        conversion: { done: true, error: false },
+        conversion: { done: false, error: false },
         upload: { done: false, error: false, progress: 0 },
         onProgress: (event) => {
           if (!event.lengthComputable) {
