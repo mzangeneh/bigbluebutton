@@ -25,22 +25,10 @@ const handleClearStatusShortcut = () => {
   }, 'status_user_cleared');
 };
 
-const {
-  isVoiceUser,
-  isConnected,
-  isListenOnly,
-  isEchoTest,
-  isMuted,
-  isConnecting,
-  isHangingUp,
-  isTalking,
-  toggleMuteMicrophone,
-  joinListenOnly,
-} = Service;
 
 export default lockContextContainer(withModalMounter(withTracker(({ mountModal, userLocks }) => ({
   isRaised: currentUserEmoji.status() !== 'none',
-  disable: isConnecting() || isHangingUp() || !Meteor.status().connected,
+  disable: !Meteor.status().connected,
   handleJoinAudio,
   handleLeaveAudio,
 }))(StatusShortcutContainer)));
