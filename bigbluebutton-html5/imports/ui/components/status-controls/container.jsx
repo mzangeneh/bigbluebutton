@@ -8,6 +8,7 @@ import lockContextContainer from '/imports/ui/components/lock-viewers/context/co
 import logger from '/imports/startup/client/logger';
 import Users from '/imports/api/users';
 import Service from './service';
+import StatusShortcut from './component';
 
 const StatusShortcutContainer = props => <StatusShortcut {...props} />;
 
