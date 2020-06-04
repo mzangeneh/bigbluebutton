@@ -102,7 +102,7 @@ class Settings extends Component {
     super(props);
 
     const {
-      dataSaving, application,
+      dataSaving, application,presentations,
     } = props;
 
     this.state = {
@@ -194,7 +194,7 @@ class Settings extends Component {
             availableLocales={availableLocales}
             handleUpdateSettings={this.handleUpdateSettings}
             presentations={presentations}
-            settings={current.application,presentations}
+            settings={current.application}
           />
         </TabPanel>
         {/* <TabPanel className={styles.tabPanel}> */}
