@@ -11,33 +11,6 @@ import Presentations from '/imports/api/presentations';
 const MIN_FONTSIZE = 0;
 const CHAT_ENABLED = Meteor.settings.public.chat.enabled;
 
-const getPresentations = () => Presentations
-  .find({
-    'conversion.error': false,
-  })
-  .fetch()
-  .map((presentation) => {
-    const {
-      conversion,
-      current,
-      downloadable,
-      id,
-      name,
-    } = presentation;
-
-    const uploadTimestamp = id.split('-').pop();
-
-    return {
-      id,
-      filename: name,
-      isCurrent: current || false,
-      upload: { done: true, error: false },
-      isDownloadable: downloadable,
-      conversion: conversion || { done: true, error: false },
-      uploadTimestamp,
-    };
-  });
-
 const intlMessages = defineMessages({
   applicationSectionTitle: {
     id: 'app.submenu.application.applicationSectionTitle',
@@ -104,6 +77,35 @@ const intlMessages = defineMessages({
 class ApplicationMenu extends BaseMenu {
   static setHtmlFontSize(size) {
     document.getElementsByTagName('html')[0].style.fontSize = size;
+  }
+
+  getPresentations(){
+    return Presentations
+    .find({
+      'conversion.error': false,
+    })
+    .fetch()
+    .map((presentation) => {
+      const {
+        conversion,
+        current,
+        downloadable,
+        id,
+        name,
+      } = presentation;
+
+      const uploadTimestamp = id.split('-').pop();
+
+      return {
+        id,
+        filename: name,
+        isCurrent: current || false,
+        upload: { done: true, error: false },
+        isDownloadable: downloadable,
+        conversion: conversion || { done: true, error: false },
+        uploadTimestamp,
+      };
+  });
   }
 
   constructor(props) {
