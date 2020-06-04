@@ -165,7 +165,9 @@ class ApplicationMenu extends BaseMenu {
           
         </h3>
       </div>
-      {presentationsSorted.map(item => this.renderPresentationItem(item))}
+      <div>
+        {presentationsSorted.map(item => this.renderPresentationItem(item))}
+      </div>
     );
   }
 
