@@ -82,9 +82,9 @@ class ApplicationMenu extends BaseMenu {
     super(props);
 
     logger.info({
-    logCode: 'user_status',
-    extraInfo: { logType: 'show' },
-  }, props.settings);
+      logCode: 'user_status',
+      extraInfo: { logType: 'show' },
+    }, props);
 
     this.state = {
       settingsName: 'application',
