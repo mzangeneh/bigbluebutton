@@ -161,11 +161,11 @@ class ApplicationMenu extends BaseMenu {
 
     return (
       <div>
-        <h3 className={styles.title}>
-          
-        </h3>
-      </div>
-      <div>
+        <div>
+          <h3 className={styles.title}>
+            
+          </h3>
+        </div>
         {presentationsSorted.map(item => this.renderPresentationItem(item))}
       </div>
     );
