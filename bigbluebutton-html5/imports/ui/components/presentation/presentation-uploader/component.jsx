@@ -548,7 +548,13 @@ class PresentationUploader extends Component {
     const isActualCurrent = item.id === oldCurrentId;
     const isUploading = !item.upload.done && item.upload.progress > 0;
     const isConverting = !item.conversion.done && item.upload.done;
+
+    if (item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0) {
+        isConverting = false;
+    }
+
     const hasError = item.conversion.error || item.upload.error;
+
     const isProcessing = (isUploading || isConverting) && !hasError;
 
     const itemClassName = {
@@ -605,14 +611,14 @@ class PresentationUploader extends Component {
               icon={item.isDownloadable ? 'download' : 'download-off'}
               onClick={() => this.toggleDownloadable(item)}
             />
-            <Checkbox
+            {item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0 ? null : (<Checkbox
               ariaLabel={`${intl.formatMessage(intlMessages.setAsCurrentPresentation)} ${item.filename}`}
               checked={item.isCurrent}
               className={styles.itemAction}
               disabled={disableActions}
               keyValue={item.id}
               onChange={this.handleCurrentChange}
-            />
+            />)}
             {hideRemove ? null : (
               <Button
                 disabled={disableActions}
