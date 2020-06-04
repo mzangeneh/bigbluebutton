@@ -73,23 +73,9 @@ const propTypes = {
     fallbackLocale: PropTypes.string,
     fontSize: PropTypes.string,
     locale: PropTypes.string,
-    presentations: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      filename: PropTypes.string.isRequired,
-      isCurrent: PropTypes.bool.isRequired,
-      conversion: PropTypes.object,
-      upload: PropTypes.object,
-    })).isRequired,
   }).isRequired,
   updateSettings: PropTypes.func.isRequired,
   availableLocales: PropTypes.objectOf(PropTypes.array).isRequired,
-  presentations: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    filename: PropTypes.string.isRequired,
-    isCurrent: PropTypes.bool.isRequired,
-    conversion: PropTypes.object,
-    upload: PropTypes.object,
-  })).isRequired,
   mountModal: PropTypes.func.isRequired,
 };
 
@@ -102,7 +88,7 @@ class Settings extends Component {
     super(props);
 
     const {
-      dataSaving, application,presentations,
+      dataSaving, application,
     } = props;
 
     this.state = {
@@ -123,7 +109,7 @@ class Settings extends Component {
   }
 
   componentWillMount() {
-    const { availableLocales,presentations } = this.props;
+    const { availableLocales } = this.props;
     availableLocales.then((locales) => {
       this.setState({ availableLocales: locales });
     });
@@ -149,7 +135,6 @@ class Settings extends Component {
     const {
       selectedTab,
       availableLocales,
-      presentations,
       current,
     } = this.state;
 
@@ -193,7 +178,6 @@ class Settings extends Component {
           <Application
             availableLocales={availableLocales}
             handleUpdateSettings={this.handleUpdateSettings}
-            presentations={presentations}
             settings={current.application}
           />
         </TabPanel>
