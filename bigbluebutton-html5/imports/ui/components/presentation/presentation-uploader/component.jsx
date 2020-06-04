@@ -547,11 +547,7 @@ class PresentationUploader extends Component {
 
     const isActualCurrent = item.id === oldCurrentId;
     const isUploading = !item.upload.done && item.upload.progress > 0;
-    const isConverting = !item.conversion.done && item.upload.done;
-
-    if (item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0) {
-        isConverting = false;
-    }
+    const isConverting = (!(item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0) && !item.conversion.done && item.upload.done);
 
     const hasError = item.conversion.error || item.upload.error;
 
