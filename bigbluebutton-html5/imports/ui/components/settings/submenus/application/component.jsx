@@ -7,6 +7,7 @@ import BaseMenu from '../base/component';
 import { styles } from '../styles';
 import logger from '/imports/startup/client/logger';
 import Presentations from '/imports/api/presentations';
+import Auth from '/imports/ui/services/auth';
 
 const MIN_FONTSIZE = 0;
 const CHAT_ENABLED = Meteor.settings.public.chat.enabled;
@@ -179,7 +180,7 @@ class ApplicationMenu extends BaseMenu {
         <div className={styles.col} aria-hidden="true">
           <div className={styles.formElement}>
             <label className={styles.label}>
-              <a target='_blank' href="item.id">{item.filename}</a>
+              <a target='_blank' href="https://platform.mandegaracademy.com/bigbluebutton/presentation/download/{Auth.meetingID}/{item.id}?presFilename={item.id}.zip">{item.filename}</a>
             </label>
           </div>
         </div>
