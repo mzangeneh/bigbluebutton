@@ -155,8 +155,7 @@ class ApplicationMenu extends BaseMenu {
   }
 
   renderPresentationList() {
-    const { presentations } = this.getPresentations();
-    const { intl } = this.props;
+    const { intl,presentations } = this.props;
 
     const presentationsSorted = presentations
       .sort((a, b) => a.uploadTimestamp - b.uploadTimestamp);
@@ -194,7 +193,7 @@ class ApplicationMenu extends BaseMenu {
   }
 
   render() {
-    const { availableLocales, intl, presentations } = this.props;
+    const { availableLocales, intl } = this.props;
     const { isLargestFontSize, isSmallestFontSize, settings } = this.state;
 
     // conversions can be found at http://pxtoem.com
