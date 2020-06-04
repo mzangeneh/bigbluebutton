@@ -162,7 +162,7 @@ class ApplicationMenu extends BaseMenu {
     return (
       <div>
         <h3 className={styles.title}>
-          Downloads
+          
         </h3>
       </div>
       {presentationsSorted.map(item => this.renderPresentationItem(item))}
