@@ -297,7 +297,7 @@ class PresentationUploader extends Component {
           // if there's error we don't want to close the modal
           this.setState({
             disableActions: false,
-            preventClosing: true,
+            preventClosing: false,
           }, () => {
             // if the selected current has error we revert back to the old one
             const newCurrent = presentations.find(p => p.isCurrent);
@@ -314,7 +314,7 @@ class PresentationUploader extends Component {
 
           this.setState({
             disableActions: false,
-            preventClosing: true,
+            preventClosing: false,
           });
         });
     }
