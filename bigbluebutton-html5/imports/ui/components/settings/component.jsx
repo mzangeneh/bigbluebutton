@@ -116,7 +116,7 @@ class Settings extends Component {
   }
 
   componentWillMount() {
-    const { availableLocales } = this.props;
+    const { availableLocales, presentations } = this.props;
     availableLocales.then((locales) => {
       this.setState({ availableLocales: locales });
     });
