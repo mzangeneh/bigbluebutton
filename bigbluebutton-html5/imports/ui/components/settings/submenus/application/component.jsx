@@ -189,7 +189,7 @@ class ApplicationMenu extends BaseMenu {
   }
 
   renderPresentationList() {
-    const { presentations } = getPresentations();
+    const { presentations } = this.getPresentations();
     const { intl } = this.props;
 
     const presentationsSorted = presentations
