@@ -164,7 +164,7 @@ class ApplicationMenu extends BaseMenu {
       <div>
         <div>
           <h3 className={styles.title}>
-            
+            Downloads
           </h3>
         </div>
         {presentationsSorted.map(item => this.renderPresentationItem(item))}
@@ -173,17 +173,19 @@ class ApplicationMenu extends BaseMenu {
   }
 
   renderPresentationItem(item) {
+    if (item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0)
     return (
       <div className={styles.row}>
         <div className={styles.col} aria-hidden="true">
           <div className={styles.formElement}>
             <label className={styles.label}>
-              <a target='_blank' href="#">{item.filename}</a>
+              <a target='_blank' href="item.id">{item.filename}</a>
             </label>
           </div>
         </div>
       </div>
-    )
+    );
+    return null;
   }
 
   handleSelectChange(fieldname, options, e) {
