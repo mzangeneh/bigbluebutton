@@ -6,9 +6,37 @@ import { defineMessages, injectIntl } from 'react-intl';
 import BaseMenu from '../base/component';
 import { styles } from '../styles';
 import logger from '/imports/startup/client/logger';
+import Presentations from '/imports/api/presentations';
 
 const MIN_FONTSIZE = 0;
 const CHAT_ENABLED = Meteor.settings.public.chat.enabled;
+
+const getPresentations = () => Presentations
+  .find({
+    'conversion.error': false,
+  })
+  .fetch()
+  .map((presentation) => {
+    const {
+      conversion,
+      current,
+      downloadable,
+      id,
+      name,
+    } = presentation;
+
+    const uploadTimestamp = id.split('-').pop();
+
+    return {
+      id,
+      filename: name,
+      isCurrent: current || false,
+      upload: { done: true, error: false },
+      isDownloadable: downloadable,
+      conversion: conversion || { done: true, error: false },
+      uploadTimestamp,
+    };
+  });
 
 const intlMessages = defineMessages({
   applicationSectionTitle: {
@@ -159,7 +187,7 @@ class ApplicationMenu extends BaseMenu {
   }
 
   renderPresentationList() {
-    const { presentations } = this.state.settings.presentations;
+    const { presentations } = getPresentations();
     const { intl } = this.props;
 
     const presentationsSorted = presentations
