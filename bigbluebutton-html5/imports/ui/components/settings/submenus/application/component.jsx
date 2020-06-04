@@ -152,6 +152,37 @@ class ApplicationMenu extends BaseMenu {
     this.setState({ isLargestFontSize: false });
   }
 
+  renderPresentationList() {
+    const { presentations } = this.state.settings.presentations;
+    const { intl } = this.props;
+
+    const presentationsSorted = presentations
+      .sort((a, b) => a.uploadTimestamp - b.uploadTimestamp);
+
+    return (
+      <div>
+        <h3 className={styles.title}>
+          Downloads
+        </h3>
+      </div>
+      {presentationsSorted.map(item => this.renderPresentationItem(item))}
+    );
+  }
+
+  renderPresentationItem(item) {
+    return (
+      <div className={styles.row}>
+        <div className={styles.col} aria-hidden="true">
+          <div className={styles.formElement}>
+            <label className={styles.label}>
+              <a target='_blank' href="#">{item.filename}</a>
+            </label>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   handleSelectChange(fieldname, options, e) {
     const obj = this.state;
     obj.settings[fieldname] = e.target.value.toLowerCase().replace('_', '-');
@@ -177,6 +208,9 @@ class ApplicationMenu extends BaseMenu {
 
     return (
       <div>
+
+        {this.renderPresentationList()}
+
         <div>
           <h3 className={styles.title}>
             {intl.formatMessage(intlMessages.applicationSectionTitle)}
