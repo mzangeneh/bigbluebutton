@@ -79,35 +79,6 @@ class ApplicationMenu extends BaseMenu {
     document.getElementsByTagName('html')[0].style.fontSize = size;
   }
 
-  getPresentations(){
-    return Presentations
-    .find({
-      'conversion.error': false,
-    })
-    .fetch()
-    .map((presentation) => {
-      const {
-        conversion,
-        current,
-        downloadable,
-        id,
-        name,
-      } = presentation;
-
-      const uploadTimestamp = id.split('-').pop();
-
-      return {
-        id,
-        filename: name,
-        isCurrent: current || false,
-        upload: { done: true, error: false },
-        isDownloadable: downloadable,
-        conversion: conversion || { done: true, error: false },
-        uploadTimestamp,
-      };
-  });
-  }
-
   constructor(props) {
     super(props);
 
@@ -223,7 +194,7 @@ class ApplicationMenu extends BaseMenu {
   }
 
   render() {
-    const { availableLocales, intl } = this.props;
+    const { availableLocales, intl, presentations } = this.props;
     const { isLargestFontSize, isSmallestFontSize, settings } = this.state;
 
     // conversions can be found at http://pxtoem.com
