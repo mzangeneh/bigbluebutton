@@ -275,7 +275,7 @@ class PresentationUploader extends Component {
       .filter(p => !p.upload.error && !p.conversion.error);
 
     this.setState({
-      disableActions: true,
+      disableActions: false,
       preventClosing: true,
       presentations: presentationsToSave,
     });
