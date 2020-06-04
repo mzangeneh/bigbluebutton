@@ -194,7 +194,7 @@ class Settings extends Component {
             availableLocales={availableLocales}
             handleUpdateSettings={this.handleUpdateSettings}
             presentations={presentations}
-            settings={current.application}
+            settings={current.application,presentations}
           />
         </TabPanel>
         {/* <TabPanel className={styles.tabPanel}> */}
