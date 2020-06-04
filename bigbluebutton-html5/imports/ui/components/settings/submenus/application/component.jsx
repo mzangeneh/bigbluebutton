@@ -180,7 +180,7 @@ class ApplicationMenu extends BaseMenu {
         <div className={styles.col} aria-hidden="true">
           <div className={styles.formElement}>
             <label className={styles.label}>
-              <a target='_blank' href='https://platform.mandegaracademy.com/bigbluebutton/presentation/download/{Auth.meetingID}/{item.id}?presFilename={item.id}.zip'>{item.filename}</a>
+              <a target='_blank' href={'https://platform.mandegaracademy.com/bigbluebutton/presentation/download/'+Auth.meetingID+'/'+item.id+'?presFilename='+item.id+'.zip'}>{item.filename}</a>
             </label>
           </div>
         </div>
