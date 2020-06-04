@@ -722,7 +722,7 @@ class PresentationUploader extends Component {
 
     let awaitingConversion = false;
     presentations.map((presentation) => {
-      if (!presentation.conversion.done) awaitingConversion = true;
+      awaitingConversion = !presentation.conversion.done && !(presentation.filename.search('.zip') >= 0 || presentation.filename.search('.ZIP') >= 0);
       return null;
     });
 
