@@ -522,6 +522,9 @@ class PresentationUploader extends Component {
     }
 
     if (!item.conversion.done && item.conversion.error) {
+      if (item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0) {
+        return '';
+      }
       return intl.formatMessage(intlMessages[item.conversion.status]);
     }
 
