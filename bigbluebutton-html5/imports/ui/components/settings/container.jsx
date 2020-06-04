@@ -7,6 +7,7 @@ import {
   getUserRoles,
   updateSettings,
   getAvailableLocales,
+  getPresentations,
 } from './service';
 
 const SettingsContainer = props => (
@@ -20,4 +21,5 @@ export default withTracker(() => ({
   updateSettings,
   availableLocales: getAvailableLocales(),
   isModerator: getUserRoles() === 'MODERATOR',
+  presentations: getPresentations(),
 }))(SettingsContainer);

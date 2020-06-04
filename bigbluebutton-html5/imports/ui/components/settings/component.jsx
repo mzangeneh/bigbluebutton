@@ -76,6 +76,13 @@ const propTypes = {
   }).isRequired,
   updateSettings: PropTypes.func.isRequired,
   availableLocales: PropTypes.objectOf(PropTypes.array).isRequired,
+  presentations: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    filename: PropTypes.string.isRequired,
+    isCurrent: PropTypes.bool.isRequired,
+    conversion: PropTypes.object,
+    upload: PropTypes.object,
+  })).isRequired,
   mountModal: PropTypes.func.isRequired,
 };
 
@@ -177,6 +184,7 @@ class Settings extends Component {
         <TabPanel className={styles.tabPanel}>
           <Application
             availableLocales={availableLocales}
+            presentations={presentations}
             handleUpdateSettings={this.handleUpdateSettings}
             settings={current.application}
           />
