@@ -5,6 +5,7 @@ import Toggle from '/imports/ui/components/switch/component';
 import { defineMessages, injectIntl } from 'react-intl';
 import BaseMenu from '../base/component';
 import { styles } from '../styles';
+import logger from '/imports/startup/client/logger';
 
 const MIN_FONTSIZE = 0;
 const CHAT_ENABLED = Meteor.settings.public.chat.enabled;
@@ -79,6 +80,11 @@ class ApplicationMenu extends BaseMenu {
 
   constructor(props) {
     super(props);
+
+    logger.info({
+    logCode: 'user_status',
+    extraInfo: { logType: 'show' },
+  }, props.settings);
 
     this.state = {
       settingsName: 'application',
