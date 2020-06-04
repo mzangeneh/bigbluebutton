@@ -137,6 +137,7 @@ class Settings extends Component {
   renderModalContent() {
     const {
       intl,
+      presentations,
     } = this.props;
 
     const {
