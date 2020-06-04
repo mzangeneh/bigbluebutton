@@ -529,6 +529,11 @@ class PresentationUploader extends Component {
     }
 
     if (!item.conversion.done && !item.conversion.error) {
+
+      if (item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0) {
+        return '';
+      }
+
       if (item.conversion.pagesCompleted < item.conversion.numPages) {
         return intl.formatMessage(intlMessages.conversionProcessingSlides, {
           0: item.conversion.pagesCompleted,
