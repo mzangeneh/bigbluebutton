@@ -598,7 +598,7 @@ class PresentationUploader extends Component {
         </td>
         {hasError ? null : (
           <td className={styles.tableItemActions}>
-            <Button
+            {item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0 ? null : (<Button
               className={isDownloadableStyle}
               label={formattedDownloadableLabel}
               aria-label={formattedDownloadableAriaLabel}
@@ -606,7 +606,7 @@ class PresentationUploader extends Component {
               size="sm"
               icon={item.isDownloadable ? 'download' : 'download-off'}
               onClick={() => this.toggleDownloadable(item)}
-            />
+            />)}
             {item.filename.search('.zip') >= 0 || item.filename.search('.ZIP') >= 0 ? null : (<Checkbox
               ariaLabel={`${intl.formatMessage(intlMessages.setAsCurrentPresentation)} ${item.filename}`}
               checked={item.isCurrent}
