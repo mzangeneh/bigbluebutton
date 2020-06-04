@@ -71,7 +71,7 @@ const observePresentationConversion = (
   const conversionTimeout = setTimeout(() => {
     onConversion({
       done: true,
-      error: true,
+      error: false,
       status: 'TIMEOUT',
     });
   }, CONVERSION_TIMEOUT);
