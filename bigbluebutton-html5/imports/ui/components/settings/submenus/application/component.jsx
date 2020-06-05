@@ -158,8 +158,7 @@ class ApplicationMenu extends BaseMenu {
   renderPresentationList() {
     const { intl,presentations } = this.props;
 
-    const presentationsSorted = presentations
-      .sort((a, b) => a.uploadTimestamp - b.uploadTimestamp);
+    const presentationsSorted = presentations;
 
     return (
       <div>

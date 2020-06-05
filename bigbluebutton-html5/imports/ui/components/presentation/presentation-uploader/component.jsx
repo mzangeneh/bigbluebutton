@@ -335,6 +335,10 @@ class PresentationUploader extends Component {
   }
 
   handleFiledrop(files, files2) {
+    logger.info({
+      logCode: 'drop fileeeeeeeeeeeeee',
+      extraInfo: { logType: 'show' },
+    }, 'a file dropppppp');
     const { fileValidMimeTypes, intl } = this.props;
     const validMimes = fileValidMimeTypes.map(fileValid => fileValid.mime);
     const validExtentions = fileValidMimeTypes.map(fileValid => fileValid.extension);
@@ -718,8 +722,7 @@ class PresentationUploader extends Component {
 
     let awaitingConversion = false;
     presentations.map((presentation) => {
-      if (!presentation.conversion.done) awaitingConversion = true;
-      //awaitingConversion = !presentation.conversion.done && !(presentation.filename.search('.zip') >= 0 || presentation.filename.search('.ZIP') >= 0);
+      awaitingConversion = !presentation.conversion.done && !(presentation.filename.search('.zip') >= 0 || presentation.filename.search('.ZIP') >= 0);
       return null;
     });
 
