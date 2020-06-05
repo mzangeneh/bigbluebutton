@@ -90,6 +90,17 @@ public:
     chromeDefaultExtensionLink: https://chrome.google.com/webstore/detail/bigbluebutton-screenshare/akgoaoikmbmhcopjgakkcepdgdgkjfbc
     chromeExtensionKey: KEY
     chromeExtensionLink: LINK
+    screenshare:
+      constraints:
+        video:
+          frameRate:
+            ideal: 5
+            max: 10
+          width:
+            max: 2560
+          height:
+            max: 1600
+        audio: false
     chromeScreenshareSources:
     - window
     - screen
@@ -351,23 +362,23 @@ private:
     heapdump:
       enabled: false
   minBrowserVersions:
-  - browser: chrome
-    version: 59
-  - browser: chromeMobileIOS
-    version: Infinity
-  - browser: firefox
-    version: 52
-  - browser: firefoxMobile
-    version: 52
-  - browser: edge
-    version: 17
-  - browser: ie
-    version: Infinity
-  - browser: safari
-    version: [11, 1]
-  - browser: mobileSafari
-    version: [11, 1]
-  - browser: opera
-    version: 46
-  - browser: electron
-    version: [0, 36]
+    - browser: chrome
+      version: 59
+    - browser: chromeMobileIOS
+      version: Infinity
+    - browser: firefox
+      version: 52
+    - browser: firefoxMobile
+      version: 52
+    - browser: edge
+      version: 17
+    - browser: ie
+      version: Infinity
+    - browser: safari
+      version: [11, 1]
+    - browser: mobileSafari
+      version: [11, 1]
+    - browser: opera
+      version: 46
+    - browser: electron
+      version: [0, 36]
